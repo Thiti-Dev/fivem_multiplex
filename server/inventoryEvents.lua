@@ -1,0 +1,11 @@
+RegisterServerEvent("onCprReq")
+AddEventHandler("onCprReq", function(target)
+    TriggerClientEvent("onCpr" , target , source)
+    print(userData[source].NAME .. "  trying yo cpr " .. userData[target].NAME)
+end)
+
+RegisterServerEvent("callbackHealSuccess")
+AddEventHandler("callbackHealSuccess", function(target)
+    TriggerClientEvent("onCprDone" , target , userData[source].NAME)
+    --print(userData[source].NAME .. "  trying yo cpr " .. userData[target].NAME)
+end)
